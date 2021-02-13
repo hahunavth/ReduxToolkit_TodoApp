@@ -1,0 +1,49 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+
+  .NavBar{
+    background-color: rgba(102, 90, 90, 0.096);
+    padding: 15px;
+
+    .NavMenu{
+      display: flex;
+      justify-content: space-around;
+      flex-direction: row;
+      padding: 10px 0;
+    }
+  }
+
+  .TodoForm{
+    background-image: linear-gradient(to right top, rgb(66, 134, 179), rgb(175, 131, 192));
+    color: white;
+    padding: 10px;
+    
+  }
+
+  .Todos-list{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    background-color: tomato;
+    padding: 10px;
+    list-style-type: none;
+
+    .Todos-item{
+      background-color: aliceblue;
+      border: 1px solid rgb(189, 208, 224);
+      padding: 5px;
+      margin: 5px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      span{
+        width: 80%;
+        text-align: left;
+      }
+    }
+  }
+}
+
+

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addTodo } from "../Store/Reducer/todoSlice";
+import {Form, Button} from 'react-bootstrap'
 
 function TodoForm() {
   const [title, setTitle] = useState("");
@@ -19,11 +20,16 @@ function TodoForm() {
   }
 
   return (
-    <form className="TodoForm" onSubmit={handleAddTodo}>
-      <label>Add Todo: </label>
-      <input type="text" onChange={handleChange} value={title} />
-      <input type="submit" />
-    </form>
+    <Form className="TodoForm" onSubmit={handleAddTodo}>
+      <Form.Group controlId="formTodo">
+      <Form.Label>Add Todo: </Form.Label>
+      <Form.Control type="text" onChange={handleChange} value={title} />
+      <Form.Text className="text-muted">
+        { /* We'll never share your email with anyone else. */}
+      </Form.Text>
+      </Form.Group>
+      <Button variant="primary mt-2 mb-2"  type="submit"> Submit </Button>
+    </Form>
   );
 }
 

@@ -1,10 +1,15 @@
 import { createSlice, createAsyncThunk, nanoid } from "@reduxjs/toolkit";
 import axios from "axios";
 
+const local = "http://127.0.0.1:3001";
+const heroku = "https://hahunavth-rails-api.herokuapp.com";
+const hostname = heroku;
+
 export const getTodo = createAsyncThunk("todos/todosFetched", async () => {
-  const res = await axios.get(
-    "https://jsonplaceholder.typicode.com/todos?_limit=5"
-  );
+  // const res = await axios.get(
+  //   "https://jsonplaceholder.typicode.com/todos?_limit=5"
+  // );
+  const res = await axios.get(hostname + "/todos");
   return res.data;
 });
 
@@ -12,16 +17,31 @@ export const addTodo = createAsyncThunk("todos/todosAdded", async (title) => {
   const newTodo = {
     id: nanoid(),
     title: title,
-    completed: false
+    completed: false,
   };
-  await axios.get("https://jsonplaceholder.typicode.com/todos", newTodo);
+  // await axios.get("https://jsonplaceholder.typicode.com/todos", newTodo);
+  await axios.post(hostname + "/todos", newTodo).then((res) => {
+    console.log("add todo return : ");
+    console.log(res);
+    newTodo.id = res.data.id;
+  });
   return newTodo;
+});
+
+export const removeTodo = createAsyncThunk("todos/todosRemove", async (id) => {
+  const deleteTodo = {
+    id: id,
+  };
+  // await axios.get("https://jsonplaceholder.typicode.com/todos", newTodo);
+  await axios.delete(hostname + "/todos/" + id, deleteTodo);
+
+  return { id };
 });
 
 const todosSlice = createSlice({
   name: "todos",
   initialState: {
-    allTodos: []
+    allTodos: [],
   },
   reducers: {
     addTodos: {
@@ -30,9 +50,9 @@ const todosSlice = createSlice({
       },
       prepare: (title) => {
         return {
-          payload: { id: nanoid(), title: title, completed: false }
+          payload: { id: nanoid(), title: title, completed: false },
         };
-      }
+      },
     },
     removeTodos: (state, action) => {
       const id = action.payload;
@@ -48,7 +68,7 @@ const todosSlice = createSlice({
         }
         return todo;
       });
-    }
+    },
   },
   extraReducers: {
     // Get all todos
@@ -64,10 +84,19 @@ const todosSlice = createSlice({
     },
     [addTodo.fulfilled]: (state, action) => {
       const title = action.payload;
-      console.log("added" + title);
+      const id = action.payload.id;
       state.allTodos.unshift(title);
-    }
-  }
+    },
+    [removeTodo.pending]: (state, action) => {
+      console.log("try delete todo");
+    },
+    [removeTodo.fulfilled]: (state, action) => {
+      const id = action.payload.id;
+      state.allTodos = state.allTodos.filter((todo) => {
+        return todo.id !== id;
+      });
+    },
+  },
 });
 
 //Export selector

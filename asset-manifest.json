@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.js": "/reduxtoolkit-todoapp/static/js/main.8c2a04c1.chunk.js",
-    "main.js.map": "/reduxtoolkit-todoapp/static/js/main.8c2a04c1.chunk.js.map",
-    "runtime-main.js": "/reduxtoolkit-todoapp/static/js/runtime-main.f07c70ea.js",
-    "runtime-main.js.map": "/reduxtoolkit-todoapp/static/js/runtime-main.f07c70ea.js.map",
-    "static/css/2.e7f6e35d.chunk.css": "/reduxtoolkit-todoapp/static/css/2.e7f6e35d.chunk.css",
-    "static/js/2.bd666f94.chunk.js": "/reduxtoolkit-todoapp/static/js/2.bd666f94.chunk.js",
-    "static/js/2.bd666f94.chunk.js.map": "/reduxtoolkit-todoapp/static/js/2.bd666f94.chunk.js.map",
-    "static/js/3.00d3b06e.chunk.js": "/reduxtoolkit-todoapp/static/js/3.00d3b06e.chunk.js",
-    "static/js/3.00d3b06e.chunk.js.map": "/reduxtoolkit-todoapp/static/js/3.00d3b06e.chunk.js.map",
-    "index.html": "/reduxtoolkit-todoapp/index.html",
-    "static/css/2.e7f6e35d.chunk.css.map": "/reduxtoolkit-todoapp/static/css/2.e7f6e35d.chunk.css.map",
-    "static/js/2.bd666f94.chunk.js.LICENSE.txt": "/reduxtoolkit-todoapp/static/js/2.bd666f94.chunk.js.LICENSE.txt"
+    "main.js": "/ReduxToolkit_TodoApp/static/js/main.8c2a04c1.chunk.js",
+    "main.js.map": "/ReduxToolkit_TodoApp/static/js/main.8c2a04c1.chunk.js.map",
+    "runtime-main.js": "/ReduxToolkit_TodoApp/static/js/runtime-main.b1eff641.js",
+    "runtime-main.js.map": "/ReduxToolkit_TodoApp/static/js/runtime-main.b1eff641.js.map",
+    "static/css/2.e7f6e35d.chunk.css": "/ReduxToolkit_TodoApp/static/css/2.e7f6e35d.chunk.css",
+    "static/js/2.bd666f94.chunk.js": "/ReduxToolkit_TodoApp/static/js/2.bd666f94.chunk.js",
+    "static/js/2.bd666f94.chunk.js.map": "/ReduxToolkit_TodoApp/static/js/2.bd666f94.chunk.js.map",
+    "static/js/3.00d3b06e.chunk.js": "/ReduxToolkit_TodoApp/static/js/3.00d3b06e.chunk.js",
+    "static/js/3.00d3b06e.chunk.js.map": "/ReduxToolkit_TodoApp/static/js/3.00d3b06e.chunk.js.map",
+    "index.html": "/ReduxToolkit_TodoApp/index.html",
+    "static/css/2.e7f6e35d.chunk.css.map": "/ReduxToolkit_TodoApp/static/css/2.e7f6e35d.chunk.css.map",
+    "static/js/2.bd666f94.chunk.js.LICENSE.txt": "/ReduxToolkit_TodoApp/static/js/2.bd666f94.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.f07c70ea.js",
+    "static/js/runtime-main.b1eff641.js",
     "static/css/2.e7f6e35d.chunk.css",
     "static/js/2.bd666f94.chunk.js",
     "static/js/main.8c2a04c1.chunk.js"

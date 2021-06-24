@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import {useSelector, useDispatch} from 'react-redux';
 import { getTodo , todosSelector,removeTodos, removeTodo, markComplete} from '../Store/Reducer/todoSlice';
+import TodoItem from './TodoItem'
 import {ListGroup, Button, Container, Row, Col} from 'react-bootstrap'
 
 
@@ -13,9 +14,10 @@ function Todos() {
     dispatch(markComplete(id))
   }
 
-  const handleDelete = (id) => {
-    dispatch(removeTodo(id));
+  const handleDelete = (id, e) => {
+    const ret = dispatch(removeTodo(id))
 		dispatch(getTodo());
+    return ret;
   }
 
   useEffect(() => {
@@ -27,26 +29,7 @@ function Todos() {
     <div>
       <ListGroup as='ul' variant='flush'>
         {todos.map((todo) => (
-          <ListGroup.Item as='li' key={todo.id} className="Todos-item">
-            <Container>
-            <Row>
-              <Col>
-                {todo.title}
-              </Col>
-              <Col xs lg="1"  md="auto">
-                <input key={todo.id} 
-                type="checkbox" 
-                checked={todo.isComplete} 
-                onChange={toggleIsComplete.bind(this, todo.id)}/>
-              </Col>
-              <Col xs lg="1">
-                <Button variant='danger' onClick={handleDelete.bind(this, todo.id)}>
-                  Delete
-                </Button>
-              </Col>
-            </Row>
-            </Container>
-          </ListGroup.Item>
+          <TodoItem todo={todo}  key={todo.id} toggleIsComplete={toggleIsComplete} handleDelete={handleDelete}/>
         ))}
       </ListGroup>
     </div>

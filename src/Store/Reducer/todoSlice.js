@@ -21,8 +21,8 @@ export const addTodo = createAsyncThunk("todos/todosAdded", async (title) => {
   };
   // await axios.get("https://jsonplaceholder.typicode.com/todos", newTodo);
   await axios.post(hostname + "/todos", newTodo).then((res) => {
-    console.log("add todo return : ");
-    console.log(res);
+    // console.log("add todo return : ");
+    // console.log(res);
     newTodo.id = res.data.id;
   });
   return newTodo;
@@ -75,6 +75,11 @@ const todosSlice = createSlice({
     [getTodo.pending]: (state, action) => {
       console.log("Fetching todos from backend ....");
     },
+    // [getTodo.rejected]: (state, action) => {
+    //   console.log("Rejected");
+    //   state.allTodos = [];
+    //   // return new Promise(() => {});
+    // },
     [getTodo.fulfilled]: (state, action) => {
       console.log("Done");
       state.allTodos = action.payload;

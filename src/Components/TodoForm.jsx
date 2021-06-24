@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addTodo } from "../Store/Reducer/todoSlice";
-import {Form, Button} from 'react-bootstrap'
+import { Form, Button } from 'react-bootstrap'
 
 function TodoForm() {
   const [title, setTitle] = useState("");
@@ -19,10 +19,11 @@ function TodoForm() {
     dispatch(addTodo(title))
     .then(() => {
       setDisable(false);
+      setTitle("");
     }, () => {
       setDisable(false);
+      setTitle("");
     });
-    setTitle("");
   }
 
   return (
